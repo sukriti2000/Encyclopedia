@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+
+    <ul>
+        {% for name in names %}
+            <li><a href="{% url 'links' name %}">{{ name|safe }}</a></li>
+            {%empty%}
+            <div>no result found</div>
+            
+        {% endfor %}
+    </ul>
+
+{% endblock %}
